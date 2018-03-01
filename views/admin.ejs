@@ -1,0 +1,94 @@
+<% include include/header.ejs%>
+
+<div class="row">
+    <div class="col-lg-5">
+        <ul class="list-inline nav navbar-nav ">
+            <li ><a class="active" href="/admin/1">Les Comptes Activer</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4">
+<ul class="list-inline nav navbar-nav navbar-right">
+    <li><a href="/admin/desactiver/1"> Les Comptes Des Activer</a></li>
+</ul>
+</div>
+
+
+<!-- Split button -->
+<div class="btn-group col-lg-2 rightt">
+    <button type="button" class="btn btn-success">
+        <span class="glyphicon glyphicon-th-list"></span>
+        Action
+    </button>
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu menutoright">
+        <% if(active == 1){%>
+        <li><a href="#" class="desactive">des Active</a></li>
+        <%}else {%>
+        <li><a href="#" class="activee">Active</a></li>
+        <%}%>
+        <li role="separator" class="divider"></li>
+        <li><a href="#" class="supprimer"> Supprimer</a></li>
+    </ul>
+</div>
+
+</div>
+<div class="table-responsive w">
+    <table class="table tablee">
+        <!-- On rows -->
+        <tr class="active">
+            <th class="active"></th>
+            <th class="success">#id</th>
+            <th class="active">Nom</th>
+            <th class="success">telephone</th>
+            <th class="active">adress</th>
+            <th class="success">ville</th>
+
+        </tr>
+
+
+<% for (var i=0 ;i<users.length ; i++){%>
+        <tr class="">
+            <td class="active"><input type="checkbox" name="active" /></td>
+            <td class="id"><%= users[i]._id %></td>
+            <td class=""><%=users[i].name %></td>
+            <td class=""><%=users[i].telephone %></td>
+            <td class=""><%=users[i].adress %></td>
+            <td class=""><%=users[i].ville %></td>
+
+
+                </tr>
+                <%}%>
+    </table>
+</div>
+
+<div class="table-pagination">
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <% for (var i=0;i<page;i++){
+            if (active == 1){%>
+            <li><a href="/admin/<%=(i+1)%>"><%=i+1%></a></li>
+            <%}else{%>
+            <li><a href="/admin/desactiver/<%=(i+1)%>"><%=i+1%></a></li>
+            <%}}%>
+
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+<% include include/footer.ejs%>

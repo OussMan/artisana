@@ -1,0 +1,16 @@
+<nav aria-label="...">
+    <ul class="pagination" style="padding-left: 520px!important;">
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+        <%for(var i=1;i<=page;i++){
+        if(i === active){%>
+
+        <li class="page-item active a"><a class="page-link" href="/produit/<%= cat %>/<%= i%>"><%= i %></a></li>
+
+        <%}else{%>
+        <li class="page-item a" ><a class="page-link" href="/produit/<%= cat %>/<%= i%>" ><%= i %></a></li>
+        <%}
+        }%>
+        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+
+    </ul>
+</nav>

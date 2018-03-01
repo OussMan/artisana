@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='<%=path%>/stylesheets/style.css' />
+    <link  type="text/css" rel="stylesheet" href="<%=path%>/bootstrap/dist/css/bootstrap.css"/>
+
+    <script type="text/javascript" src="<%=path%>/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="<%=path%>/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="<%=path%>/javascripts/profil.js"></script>
+    <script type="text/javascript" src="<%=path%>/javascripts/delete_admin.js"></script>
+    <script type="text/javascript" src="<%=path%>/javascripts/image.js"></script>
+</head>
+
+<body >
+
+<div class="container" >
+
+    <div class="row" >
+        <div class="col-lg-3" >
+            <img src="<%=path%>/images/logo-mda.png" alt="" />
+        </div>
+        <div class="col-lg-2"> <a href="/" ><img src="<%=path%>/images/accueil-icone.png" alt="" class="acceuil"/></a></div>
+        <div class="col-lg-7" >
+
+            <% if(erorprofil){%>
+            <div class="alert-warning" style="margin-bottom: 10px;">
+                <%=erorprofil%>
+            </div>
+            <%}if(id_Mr){%>
+
+            <div class="col-lg-3 " style="padding-top: 25px;margin-left: 0px;">Mr : <%=Mr %></div>
+
+            <div class="col-lg-7 " style="padding-top: 25px;margin-left: 0px;"><a href="/compte"> Mon compte</a></div>
+
+            <div class="col-lg-2 " style="padding-top: 10px;margin-left: 0px;">
+                <a href="/deconnexion" style="">
+                    <button type="submit" class="btn btn-info btn-sm btninfo">deconnexion</button>
+                </a>
+            </div>
+
+            <%}else{%>
+            <div class="navbar navbar-default" >
+                <% include form.ejs%>
+               <a href="/inscription">
+                   <button type="submit" class="btn btn-info btn-sm btninfo">inscription</button>
+                </a>
+            </div>
+            <%}%>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12" >
+
+            <nav class="navbar navbar-default">
+                <form class="navbar-form navbar-center inline-form" >
+                    <div class="form-group" >
+                        <b>ville :</b>
+                        <select class="form-control" >
+                            <option value="Casablanca">Casablanca</option>
+                            <option value="Rabat">Rabat</option>
+                            <option value="Marrackech">Marrackech</option>
+                            <option value="Ouarzazate">Ouarzazate</option>
+                            <option value="Agadir">Agadir</option>
+                            <option value="Essaoiura">Essaoiura</option>
+                            <option value="Fes">Fes</option>
+                        </select>
+                        <b >categorie :   </b>
+                        <select class="form-control" >
+                            <option value="">Arts de Cuir</option>
+                            <option value="">Arts de Bois</option>
+                            <option value="">Mode</option>
+                            <option value="">Arts de Poterie</option>
+                            <option value="">Arts de Métal et fer forgé</option>
+                            <option value="">Arts de la table</option>
+                        </select>
+                        <b>   </b><input type="text" class="input-sm form-control" placeholder="pseudo" >
+
+                        <button type="submit" class="btn btn-primary form-control" > Chercher Articles</button>
+                        <button type="submit" class="btn btn-primary form-control" > Chercher Artisnat</button>
+                    </div>
+                </form>
+            </nav>
+
+        </div >
+
+    </div>

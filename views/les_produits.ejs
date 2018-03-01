@@ -1,0 +1,51 @@
+<% include include/headerindex.ejs%>
+
+<%include include/menu.ejs%>
+
+<div class="row" style="position: relative;">
+
+    <div class=" demande" style="height: 320px;">
+
+        <div class="col-lg-3" style="padding-left:40px;font-size: 20px;float: left;height: 320px;">Les produits</div>
+
+        <div class="col-lg-9" style="float: left;overflow: auto;height: 320px;">
+            <% for(var i=0; i<produit.length;i++){%>
+            <input type="hidden" name="idid" class="supartid" value="<%= produit[i]._id %>">
+                <div class="col-lg-11">
+                    <div class="col-lg-5" style="height: 150px;padding: 1px">
+                        <img class="col-lg-9" src="/image_upload/<%= produit[i].name%>" alt="" style="border:1px solid #ccc;height: 100%;width: 100%;padding: 0px; " />
+                    </div>
+                    <div class="col-lg-7" style="left: 30px;">
+                        <form action="/compte/lesproduits/1" method="post" >
+                            <div class="row">
+                                <input type="hidden" name="idid" value="<%= produit[i]._id %>">
+                                <div class="row">
+                                    <input name="titre" type="text" value="<%= produit[i].titre%>" style="width: 90%;height: 32px;"/>
+                                </div>
+                                <div class="row w">
+                                    <textarea name="description" cols="50" style="" rows ="3" ><%= produit[i].description%></textarea>
+                                </div>
+                                <div class="row" style="padding: 5px;font-size: 22px;">
+                                    <div class="col-lg-2" style="width: 90px;">  <input name="prix" type="text" value=" <%= produit[i].prix%>" style="width:70px;height: 34px;"/></div>
+                                    <div class="col-lg-2" style="padding: 0px;">DH</div>
+
+                                    <button type="submit" style="background-color:rgba(97, 254, 118, 0.77);width: 100px;left: -20px;" class="btn btn-primary btn-sm col-lg-3"> Modifier </button>
+
+                                </div>
+                            </div>
+                        </form>
+                        <button type="submit" style="background-color:rgba(10, 171, 147, 0.41);width: 100px;margin-top: -39px;margin-left: 240px;" class="btn btn-primary btn-sm col-lg-3 supart"> supprimer </button>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+
+    </div>
+
+</div>
+<% include include/pagination1.ejs%>
+<% include include/footer.ejs%>
+
+
+
+

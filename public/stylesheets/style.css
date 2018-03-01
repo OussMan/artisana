@@ -1,0 +1,52 @@
+body {
+    background-image: url('../images/background.jpg');
+    background-size : 100% 100%; background-repeat: no-repeat;width: 100%;
+
+}
+.rightt{
+    left: 105px;
+}
+.menutoright{
+    margin-left:-48px!important;
+}
+a {
+    color: #00B7FF;
+}
+div.container{
+    width: 79%;
+    height: 560px;
+    margin-top: 3%;
+}
+.btninfo{margin-top: 8px;}
+.w{
+    margin-bottom: 5px;margin-top: 5px;
+    margin-right: 2px;
+}
+.acceuil{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top:  20px;
+    margin-bottom:  20px;
+}
+img.c{
+    width:100%;height: 130px;border-radius:10px;margin-left: -5px;position: relative;
+    margin-bottom: 10px;
+}
+img.r{
+    margin-left: 5px!important;
+}
+.t{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: -120px;
+    z-index: 2;
+}
+footer{
+    width: 79%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75px;
+}
+footer.panel-body p{
+    text-align: center!important;
+}

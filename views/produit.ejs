@@ -1,0 +1,105 @@
+<% include include/headerindex.ejs%>
+
+<div style="width: 100%;height: 76%;overflow: auto;overflow-x: hidden;">
+
+        <div class="row" >
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8" style="padding: 0px;font-family: ouss;">
+                <!--la répététion-->
+        <% for(var i =0;i<listproduit.length;i++){%>
+                <a href="#"  class="clik" data-toggle="modal" data-target="#myModal">
+                    <input type="hidden" name="artisant" value="<%= listproduit[i].user.name%>"/>
+                    <input type="hidden" name="description" value="<%= listproduit[i].description%>"/>
+                    <input type="hidden" name="telephone" value="<%= listproduit[i].user.telephone%>"/>
+                    <input type="hidden" name="email" value="<%= listproduit[i].user.email%>"/>
+                    <div class="row" id="aa" style="border-bottom: 1px solid #ccc;">
+                        <div class="col-md-5" style="height: 140px;padding: 0px;">
+                            <img src="<%= path%>/image_upload/<%= listproduit[i].name%>" alt="" class="col-md-12 imgarticle" style="height: 138px;padding: 0px; " />
+                        </div>
+                        <div class="col-md-7" style="padding-left: 50px;padding-top: 8px;">
+                            <div class="row" style="font-size: 20px;text-align:font-family: ouss; "><span>titre  :  </span><span class="titre"><%= listproduit[i].titre%></span></div>
+                            <div class="row" style="font-size: 20px;font-family: ouss;"><span>ville :</span><span class="ville"><%= listproduit[i].user.ville%></span></div>
+                            <div class="row" style="font-size: 20px;font-family: ouss;"><span>Quantité :</span> 1</div>
+                            <div class="row" style="font-size: 22px;">
+                                <div class="col-md-2" style="padding: 0px;font-family: ouss;">le prix</div>
+                                <div class="col-md-2" style="padding: 0px;"> <span class="prix"><%= listproduit[i].prix%></span></div>
+                                <div class="col-md-2" style="padding: 0px;font-family: ouss;">DH</div>
+                                <div class="col-md-3 id_arts" style="padding: 0px;text-align: right;display: none;">
+                                    id artisant
+                                </div>
+                                <div class="col-md-3 id_art" style="padding: 0px;text-align: right;display: none;">
+                                    id article
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <%}%>
+            </div>
+
+        </div>
+
+
+        <!--la début de block-->
+    <div class="modal fade bd-example-modal-lg popup"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title text-center" id="myModalLabel">Description de L'article :</h3>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row" id="aa" style="">
+                        <div class="row" style="padding: 1px;">
+                            <img src="<%= path%>/images/tapi.png" alt="" class="col-md-12 imgarticle imgarticle1" style="height: 250px;padding: 15px; " />
+                        </div>
+                        <div class="row" style="padding-left: 50px;padding-top: 10px;padding-bottom: 10px;">
+                            Description : <span class="description"></span>
+                        </div>
+                        <div class="col-md-4 " style="margin-left: 10px;">
+                            <div class="row" style="font-size: 20px;text-align:font-family: ouss; "><span>titre  :  </span><span class="titre">titre</span></div>
+                            <div class="row" style="font-size: 20px;font-family: ouss;"><span>ville :</span> <span class="ville">ville</span></div>
+
+                        </div>
+                        <div class="col-md-4" style="margin-left: 10px;">
+                            <div class="row" style="font-size: 20px;text-align:font-family: ouss; "><span>artisant  :  </span><span class="artisant">artisant</span></div>
+                            <div class="row" style="font-size: 22px;">
+                                <div class="col-md-2" style="padding: 0px;font-family: ouss;">prix</div>
+                                <div class="col-md-2" style="padding: 0px;"><span class="prix"></span></div>
+                                <div class="col-md-2" style="padding: 0px;font-family: ouss;">DH</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="margin-left: 10px;">
+                            <div class="row" style="font-size: 20px;text-align:font-family: ouss; "><span>email  :  </span><span class="email">email</span></div>
+                            <div class="row" style="font-size: 20px;font-family: ouss;"><span>telephone :</span><span class="telephone" >telephone</span> </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<% include include/pagination.ejs %>
+
+
+<% include include/footer.ejs%>
